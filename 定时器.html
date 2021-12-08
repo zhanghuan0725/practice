@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var btn1 = document.getElementById("btn1");
+
+            var timer;
+
+            // 点击按钮以后,使box1向右移动(left值增大)
+            btn1.onclick = function(){
+                clearInterval(timer);
+                // 开启一个定时器,用来执行动画效果
+                timer = setInterval(function() {
+                    // 获取box1原来的left值
+                    var oldValue = parseInt(getStyle(box1,"left"));
+                //    在自增的基础上增加
+                    var newValue = oldValue + 3;
+                    // 判断newValue是否大于800
+                    if(newValue > 800){
+                        newValue = 800;
+                    }
+                // 将新值设置给box1
+                    box1.style.left = newValue + "px"; 
+                    // 当元素移动到800px时,使其停止执行动画
+                    if(newValue >= 800){
+                        clearInterval(timer);
+                    }                   
+                }, 30);
+            };
+        };
+        function getStyle(obj,name){
+            if(window.getComputedStyle){
+
+            
+            // 正常浏览器的方式
+                return getComputedStyle(obj,null)[name];
+            }else{
+
+            
+            // IE8的方式
+                return obj.currentStyle[name];
+             }
+            }
+            // if(obj.currentStyle){
+            //     return obj.currentStyle[name];
+
+            // }else{
+            //     return getComputedStyle(obj,null)[name];
+            // }
+
+    </script>
+</head>
+<body>
+    <button id="btn1">点击按钮以后box1向右移动</button>
+    <br/>
+    <br/>
+    <div id="box1"></div>
+    <div style="width: 0; height: 1000px; border-left: 1px black solid; position: absolute; left: 800px; top: 0;"></div>
+</body>
+</html>

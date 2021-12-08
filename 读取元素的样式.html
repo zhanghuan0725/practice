@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                // alert(box1.style.width);
+                // currentStyle除ie外其他浏览器不支持
+                // alert(box1.currentStyle.backgroundColor);
+                // var obj = getComputedStyle(box1,null);
+                // alert(getComputedStyle(box1,null).width);
+                var w = getStyle(box1,"width");
+                alert(w);
+            };
+        };
+        /* 定义一个函数，用来获取指定元素的当前的样式
+         * 参数：
+          *  obj 要获取样式的元素
+         *   name 要获取的样式名
+         *   
+        */    
+        function getStyle(obj,name){
+            // if(window.getComputedStyle){
+
+            
+            // // 正常浏览器的方式
+            //     return getComputedStyle(obj,null)[name];
+            // }else{
+
+            
+            // // IE8的方式
+            //     return obj.currentStyle[name];
+            //  }
+            if(obj.currentStyle){
+                return obj.currentStyle[name];
+
+            }else{
+                return getComputedStyle(obj,null)[name];
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+    <br/><br/>
+    <div id="box1"></div>
+</body>
+</html>

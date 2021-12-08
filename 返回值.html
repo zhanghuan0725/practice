@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    //    定义一个函数，判断- -个数字是否是偶数，如果是返回true,否则返回false
+    
+
+        function isOu(num){
+            return num % 2 ==0;
+
+        }
+        var result = isOu(12);
+        // console.log("result="+ result);
+
+        // 定义一个函数，可以根据半径计算一个圆的面积，并返回计算结果
+
+        function mianji(r){
+            return 3.14*r*r;
+        }
+        result = mianji(10);
+        // console.log("result=" +result);
+        function sayHello(o){
+            //  console.log("我是"+o.name+",今年我"+o.age+"岁了,"+"我是一个"+o.gender+"人"+",我住在"+o.address);
+        }
+        // sayHello("猪八戒",26,"男","高老庄");
+        var obj={
+            name:"猪八戒",
+            age:16,
+            gender:"男",
+            address:"高老庄"
+        };
+        sayHello(obj);
+        function fun(a){
+            console.log("a="+a);
+            // a(obj);
+        }
+        fun(sayHello);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

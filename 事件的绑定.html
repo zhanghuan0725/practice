@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            // btn01.onclick = function(){
+            //     alert(1);
+            // };
+            // // 为btn01绑定第二个响应函数,会覆盖第一个
+            // btn01.onclick = function(){
+            //     alert(2);
+            // };
+            // 这个方法不支持ie8及以下的浏览器
+            // btn01.addEventListener("click",function(){
+            //     alert(1);
+            // },false);
+            // btn01.addEventListener("click",function(){
+            //     alert(2);
+            // },false);
+
+            // btn01.attachEvent("onclick",function(){
+            //     alert(1);
+            // });
+            // btn01.attachEvent("onclick",function(){
+            //     alert(2);
+            // });
+            bind(btn01,"click",function(){
+                alert(this);
+            });
+        };
+        // 定义一个函数,用来为指定元素绑定响应函数
+        function bind(obj,eventStr,callback){
+            if(obj.addEventListener){
+                // 大部分浏览器
+            obj.addEventListener(eventStr,callback,false);
+
+            }else{
+                // Ie8及以下
+            obj.attachEvent("on" + eventStr,function(){
+                // 在匿名函数中调用回调函数
+                callback.call(obj);
+            });
+
+            }
+            
+            
+
+        }
+    </script>
+</head>
+<body>
+    <button id="btn01">点我一下</button>
+</body>
+</html>

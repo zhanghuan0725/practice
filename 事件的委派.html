@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                var li = document.createElement("li");
+                li.innerHTML = "<a href = 'javascript:;' class='link'>新建的超链接</a>";
+                ul.appendChild(li);
+            
+
+            };
+            var allA = document.getElementsByTagName("a");
+            // 遍历
+            // for(var i = 0; i < allA.length ; i++){
+            //     allA[i].onclick = function(){
+            //         alert("我是a的单击响应函数!!!");
+            //     };
+            // }
+            // 事件委派,将我们的事件统一绑定给元素的共同的祖先元素,这样当后代元素上的事件触发时,会一直冒泡到祖先元素
+            ul.onclick = function(event){
+                // 如果触发事件的对象是我们期望的元素,则执行,否则不执行
+                // alert(this);
+                // alert(event.target);
+                if(event.target.className == "link"){
+                    alert("我是ul的单击响应函数");
+                }
+
+                // alert("我是ul的单击响应函数");
+            };
+
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01">添加超链接</button>
+    <ul id="ul" style="background-color: yellowgreen;">
+        <li>
+            <p>我是p元素</p>
+        </li>
+        <li><a href="javascript:;" class="link">超链接1</a></li>
+        <li><a href="javascript:;" class="link">超链接2</a></li>
+        <li><a href="javascript:;" class="link">超链接3</a></li>
+    </ul>
+</body>
+</html>

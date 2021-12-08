@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <script>
+    /*
+    *水仙花数是指一个3位数，它的每个位上数字的3次幂之和等于他本身，请打印所有的水仙花数
+    */
+        for(var i=100; i<1000; i++){
+            //先获取i的百位 十位 个位的数字
+            //获取百位
+            var bai = parseInt(i/100);
+            //获取十位
+            var shi = parseInt((i-bai*100)/10);
+            var ge = i % 10;
+            //判断i是否是水仙花数
+            if(bai*bai*bai +shi*shi*shi + ge*ge*ge ==i){
+                console.log(i);
+            }
+
+           
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

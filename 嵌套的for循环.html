@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        /*通过程序，在页面中输出如下图型：
+        *
+        **
+        ***
+        ****
+        *****
+
+        *****
+        ****
+        ***
+        **
+        *
+
+
+        */
+        //向body中输出一个内容
+        // document.write("*****</br>");
+        //通过for循环
+        //这个for循环执行几次，图形高度就是多少
+        //可以控制高度
+        for(var i=0; i<5; i++){
+            
+        
+        /*
+         *在循环的内部在创建一个循环，来控制宽度
+         *目前外部执行一次。内部执行5次
+         *内层循环决定图形的宽度
+        */
+            for(var j=0; j<i+1; j++){
+                document.write("*&nbsp;&nbsp;&nbsp;");
+
+            }
+            document.write("</br>");
+        }
+
+
+        for(var i=0; i<5; i++){
+            
+        
+            /*
+             *在循环的内部在创建一个循环，来控制宽度
+             *目前外部执行一次。内部执行5次
+             *内层循环决定图形的宽度
+            */
+                for(var j=0; j<5-i; j++){
+                    document.write("*&nbsp;&nbsp;&nbsp;");
+    
+                }
+                document.write("</br>");
+            }
+            /*
+            *1.九九乘法表
+            * 
+            */
+            for(var i=1; i<=9; i++){
+            
+        
+            /*
+             *在循环的内部在创建一个循环，来控制宽度
+             *目前外部执行一次。内部执行5次
+             *内层循环决定图形的宽度
+            */
+                for(var j=1; j<=i; j++){
+                    document.write("<span>"+j+"*"+i+"="+i*j+"</span>");
+    
+                }
+                document.write("</br>");
+            }
+             /*
+            *
+            *2.打印出1-100之间所有的质数
+            * 
+            */
+           //打印2-100之间所有的数
+           for(var i=2; i<=100; i++){
+                var flag = true;
+               //判断i是否为质数
+               //获取2-i之间的数
+               for(var j=2; j<i; j++){
+                   //判断i是否能被j整除
+                   if(i%j == 0){
+                       //如果进入判断则证明i不是质数
+                       flag = false;
+
+                   }
+               }
+               //如果是质数，则打印i的值
+               if(flag){
+                   console.log(i);
+               }
+           }
+
+           
+           var s="app".toArray()//把字符串转换成数组
+            for (var i in s){//遍历返回数组，显示每个字符
+                console.log(s[i]);
+            }
+
+
+
+
+       
+
+    </script>
+    <style>
+        span{
+            display: inline-block;
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

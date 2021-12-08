@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                // 直接可获取地址栏信息
+                // alert(location);
+                // location = "BOM.html";
+                // location.assign("http://www.baidu.com");
+                // location.reload(true);
+                location.replace("BOM.html");
+               
+            };
+
+        };
+       
+    </script>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <h1>location</h1>
+    <input type="text"/>
+    <a href="BOM.html">去BOM页面</a>
+</body>
+</html>

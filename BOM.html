@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // alert(navigator.appName);
+            // console.log(navigator.userAgent);
+            var ua = navigator.userAgent;
+            console.log(ua);
+            if(/firefox/i.test(ua)){
+                alert("你是火狐！！");
+            }else if(/chrome/i.test(ua)){
+                alert("你是谷歌！！");
+            }else if(/msie/i.test(ua)){
+                alert("你是ie!!");
+            }else if("ActiveXObject" in window){
+                alert("你是ie11，枪毙了你！！！");
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

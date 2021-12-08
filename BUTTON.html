@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: skyblue;
+            color: #fff;
+        }
+
+        .change {
+            width: 200px;
+            height: 80px;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <!-- <button>点击</button>
+    <script>
+        var btn = document.querySelector("button");
+        var i=0;
+        btn.onclick = function(){
+            this.innerHTML=i++;
+        }
+    </script> -->
+    <button>点击变大哦</button>
+        <script>
+            // 1.获取元素
+            var btn = document.querySelector('button');
+            // 2.注册事件 处理程序
+            var flag = 0;
+            btn.onclick = function () {
+                if (flag == 0) {
+                    this.className = 'change';
+                    this.innerHTML = '点击变小哦';
+                    flag = 1;
+                } else {
+                    this.className = '';
+                    this.innerHTML = '点击变大哦';
+                    flag = 0;
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+	    }
+        a,img{
+            border: 0;
+            text-decoration: none;
+        }
+        body{
+            font: 12px/180% Arial, Helvetica, sans-serif;
+        }
+	/* div.sdmenu{
+		width: 9.375rem;
+		margin: 0 auto;
+		font-family: "arial, helvetica, sans-serif";
+		font-size: 0.75rem;
+		padding-bottom: 0.625rem;
+		background-color: #1477fe;
+		color: #FFFFFF;
+		border-radius: 0.625rem;
+	}
+	div.sdmenu div{
+		background-color: #1477fe;
+		overflow: hidden;
+	}
+	div.sdmenu div:first-child{
+	}
+	div.sdmenu div.collapsed{
+		height: 1.5625rem;
+	}
+	div.sdmenu div span{
+		display: block;
+		height: 0.9375rem;
+		line-height: 0.9375rem;
+		overflow: hidden;
+		padding: 0.3125rem 1.5625rem;
+		font-weight: bold;
+		color: white;
+		cursor: pointer;
+		border-bottom: 1px solid #e4e4e4;
+	}
+	div.sdmenu div a{
+		display: block;
+		border-bottom: 1px solid #e4e4e4;
+		padding: 0.3125rem;
+		color: #576b95;
+		background-color: #F5F5F5;
+	}
+	div.sdmenu div a:hover{
+		background-color: #576b95;
+		color: #FFFFFF;
+	} */
+    </style>
+<script>
+    window.onload = function(){
+            // 每一个菜单都是一个div，具有collapsed类时折叠
+	// 点击菜单切换显示状态
+	var menuSpan =document.querySelectorAll(".menuSpan");
+	
+	// 定义一个变量保存当前打开的菜单
+	var openDiv = menuSpan[0].parentNode;
+	for(var i = 0;i<menuSpan.length;i++){
+		menuSpan[i].onclick = function(){
+			// 获取当前span的父元素
+			var parentDiv = this.parentNode;
+            // 在切换类之前，获取元素的高度
+	    	var begin = parentDiv.offsetHeight;
+            // 切换parentDiv的显示
+            togglemenu(parentDiv,"collapsed");
+            // 切换类之后获取一个高度
+	     	var end = parentDiv.offsetHeight;
+             console.log("bengin = "+begin+",end = "+end);
+			
+			// 切换菜单的显示状态
+			
+			
+			// 判断opendiv和parentdiv是否相同
+            if(openDiv != parentDiv && !hasClass(openDiv,"collasped")){
+                // 打开菜单后关闭之前打开的菜单
+		        // 采用toggleClass在做动画效果时可以统一处理,不需要有移除的功能
+                // addClass(openDiv,"collapsed");
+                togglemenu(openDiv,"collapsed");
+                }
+                openDiv = parentDiv;
+            };
+        }
+    };
+	
+	
+	// // 切换菜单折叠状态
+	// function togglemenu(obj){
+	// 	// 在切换类之前，获取元素的高度
+	// 	var begin = obj.offsetHeight;
+		
+	// 	toggleClass(obj,"collapsed")
+		
+	// 	// 切换类之后获取一个高度
+	// 	var end = obj.offsetHeight
+		
+	// 	// console.log(begin+" "+end)
+	// 	// 为实现动画效果，将元素高度重置为begin
+	// 	obj.style.height = begin + "px"
+	// 	move(obj,"height",end,5,function(){
+	// 		// 动画执行完后内联样式失去意义
+	// 		obj.style.height = null
+	// 	    });
+	//     }
+
+    // }
+</script>
+</head>
+<body>
+    <div id="my_menu" class="sdmenu">
+        <div class="collapsed">
+            <span class="menuSpan">在线工具</span>
+            <a href="#">图像优化</a>
+            <a href="#">收藏夹</a>
+            <a href="#">邮件</a>
+            <a href="#">密码</a>
+            <a href="#">按钮</a>
+            <a href="#">梯度图像</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">支持我们</span>
+            <a href="#">推荐我们</a>
+            <a href="#">链接我们</a>
+            <a href="#">网络资源</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">合作伙伴</span>
+            <a href="#">javasc工具包</a>
+            <a href="#">css驱动</a>
+            <a href="#">css例子</a>
+            <a href="#">样式</a>
+        </div>
+        <div class="collapsed">
+            <span class="menuSpan">测试电流</span>
+            <a href="#">current or not</a>
+            <a href="#">current or not</a>
+            <a href="#">current or not</a>
+            <a href="#">current or not</a>
+        </div>
+    </div>
+</body>
+</html>

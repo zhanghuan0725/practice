@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 目标:把旧数组里面不重复的元素选取出来放到新数组中，重复的元素只保留一个，放到新数组中去重。
+        // 核心算法:我们遍历旧数组，然后拿着旧组元素去查询新数组，如果该元素在新数组里面没有出现过，
+        // 我们就添加,否则不添加。
+        // 我们怎么知道该元素没有存在?利用新数组.indexOf(数组元索)如果返回时-1就说明新数组里面没有改元素
+
+
+        // var arr = ['h','e','l','l','o'];
+        // var newArr = [];//用于存放去重后的数组元素
+        // for(var i = 0;i <= arr.length - 1;i++){
+        //     //将arr数组元素添加到新数组中
+        //     newArr.push(arr[i]);
+        //     if(newArr.length >=2){
+        //         for(var j=0;j<=newArr.length-1;j++){
+        //             if(newArr.indexOf(arr[i]) != newArr.lastIndexOf(arr[i])){
+        //                 newArr.pop();
+        //             }
+        //         }
+        //     }
+        // }
+        // console.log(newArr);
+        // function unique(arr){
+        //     var newArr =[];
+        //     for(var i=0;i<arr.length;i++){
+        //         if(newArr.indexOf(arr[i]) === -1){
+        //             newArr.push(arr[i])
+        //         }
+        //     }
+        //     return newArr;
+        // }
+        // var demo = unique(["a","p","p","l","e"]);
+        // console.log(demo);
+
+        var arr =[1,2,3,2,2,1,3,4,2,5];//创建一个数组
+        for(var i=0;i<arr.length;i++){//获取数组中的每一个元素
+            console.log(arr[i]);
+            //获取当前元素后的所有元素
+            for(var j=i+1;j<arr.length;j++){
+                //判断两个元素的值是否相等
+                if(arr[i] == arr[j]){
+                    //如果相等则证明出现了重复的元素，则删除j对应的元素
+                    arr.splice(j,1);
+                    //当删除了当前j所在的元素以后，后边的元素会自动补位
+                    //此时将不会在比较这个元素，需要在比较一次j所在位置的元素
+                    j--;
+
+                }
+                
+            }
+
+
+        }
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

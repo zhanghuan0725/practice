@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            document.onkeydown = function(){
+                if(event.keyCode === 89 && event.ctrlKey){
+                    console.log("ctrl+y按键被按下");
+                }
+            };
+            var input = document.getElementsByTagName("input")[0];
+            input.onkeydown = function(){
+                // console.log("按键被按下");
+                // 使文本框不能输入数字
+                if(event.keyCode >= 48 && event.keyCode <= 57){
+                    // 在文本框中输入内容,属于onkeydown的默认行为
+                    // 如果取消默认行为,则输入的内容不会出现在文本框中
+                    return false;
+
+                }
+                
+            };
+            
+
+        };
+    </script>
+</head>
+<body>
+    <input type="text"/>
+</body>
+</html>

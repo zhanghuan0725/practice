@@ -1,0 +1,23 @@
+.lyrics {
+    height: 32%;
+    padding-top: 8px;
+    overflow: hidden;
+  }
+  .lyrics .lyricsList {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .lyrics .lyricsList li {
+    height: 30px;
+    line-height: 15px;
+    font-size: 12px;
+  }
+  /* 歌词高亮 */
+  .highlight {
+    color: #3effee;
+    text-shadow: 0 0 10px #ded1fc;
+  }

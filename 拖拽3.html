@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var img1 = document.getElementById("img1");
+            // 当鼠标在被拖拽元素上按下时,开始拖拽
+
+            // 开启box1
+            drag(box1);
+            drag(box2);
+            drag(img1);
+           
+        };
+        // 提取一个专门用来设置拖拽的函数
+        function drag(obj){
+            obj.onmousedown = function(event){
+                // div的偏移量 鼠标.clientX - offsetLeft
+                // 鼠标.clientY - offsetTop
+                // box1.setCapture();
+                var ol = event.clientX - obj.offsetLeft;
+                var ot = event.clientY - obj.offsetTop;
+                // alert("当鼠标按下,开始拖拽");
+                document.onmousemove = function(event){
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+
+                    obj.style.left = left + "px";
+                    obj.style.top = top + "px";
+
+                };
+                // 为元素绑定一个鼠标松开事件
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    // alert("鼠标松开了");
+                    box1.releaseCapture();
+
+                };
+                // 当我们拖拽一个网页中的内容时,浏览器会默认去搜索引擎中的内容,此时会导致拖拽功能异常,这个是浏览器的默认行为
+                // 如果不希望发生这个行为,则通过reeturn false 来取消默认行为,但是对ie8不起作用
+                return false;
+            };
+
+        };
+
+        
+    </script>
+</head>
+<body>
+    我是一段文字
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <img src="img/b2.jpg" id="img1" style="position: absolute; width: 300px;height: 300px;"/>
+</body>
+</html>
